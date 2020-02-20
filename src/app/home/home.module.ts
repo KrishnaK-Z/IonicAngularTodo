@@ -4,6 +4,9 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { ComponentsModule } from './components/components.module';
+
 import { HomePage } from './home.page';
 
 @NgModule({
@@ -11,6 +14,8 @@ import { HomePage } from './home.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    FontAwesomeModule,
+    ComponentsModule,
     RouterModule.forChild([
       {
         path: '',

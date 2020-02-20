@@ -1,0 +1,37 @@
+<div class="todo" id="1">
+    <div class="left-side">
+        <div class="icon-container">
+            <fa-icon [icon]="faListUl"></fa-icon>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="todo-header">
+            <div class="todo-title-header">
+                <fa-icon [icon]="faListUl"></fa-icon>
+                <h1 class="todo-title">Sample Task</h1>
+            </div>
+            <div class="todo-action">
+                <div class="status-selector">
+                    <ion-select class="status-task" multiple="true" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Filter...">
+                        <ion-select-option value="bacon">Bacon</ion-select-option>
+                        <ion-select-option value="olives">Black Olives</ion-select-option>
+                        <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+                    </ion-select>
+                </div>
+                <fa-icon [icon]="faPlus"></fa-icon>
+                <fa-icon [icon]="faUndoAlt"></fa-icon>
+                <fa-icon [icon]="faTrashAlt"></fa-icon>
+            </div>
+        </div>
+        <div class="list-slides-container">
+            <ion-slides pager>
+                <ion-slide>
+                    <app-todo></app-todo>
+                </ion-slide>
+                <ion-slide>
+                    <app-todo></app-todo>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+</div>

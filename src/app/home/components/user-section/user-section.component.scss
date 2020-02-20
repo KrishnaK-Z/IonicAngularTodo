@@ -1,0 +1,54 @@
+@import 'vars';
+@import 'breakpoints.scss';
+.user-section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    @include sm {
+        flex-direction: column;
+        // text-align: center;
+    }
+    .user-name {
+        width: 80%;
+        height: 100%;
+        line-height: 4em;
+        h1 {
+            font-size: 2em;
+        }
+        @include sm {
+            width: 100%;
+        }
+    }
+    .user-settings {
+        width: 20%;
+        height: 100%;
+        line-height: 4em;
+        @include sm {
+            width: 100%;
+        }
+        ul {
+            display: flex;
+            font-size: 1.5em;
+            justify-content: flex-start;
+            li {
+                margin: auto 0.5em;
+                cursor: pointer;
+                color: $darkTextColor;
+                transition: all .2s ease-out, color .2s ease-out;
+                &:hover {
+                    transform: scale(1.2);
+                }
+                @include sm {
+                    &:first-child {
+                        margin-left: unset
+                    }
+                }
+            }
+        }
+        ion-toggle {
+            --background: #5A5A5A;
+            --background-checked: #FDA600;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<header class="header">
+    <div class="header-container">
+        <ion-searchbar class="search-task" placeholder="Filter Schedules"></ion-searchbar>
+
+        <div class="settings">
+            <ul>
+                <li>
+                    <fa-icon [icon]="faPlusSquare"></fa-icon>
+                </li>
+                <li>
+                    <fa-icon [icon]="faBell"></fa-icon>
+                </li>
+                <li>
+                    <div class="setting-container">
+                        <fa-icon [icon]="faCog" (click)="presentPopover($event)"></fa-icon>
+                        <!-- <ul class="setting-menu">
+                          <li>
+                              <fa-icon [icon]="faUser"></fa-icon>
+                              Profile
+                          </li>
+                          <li>
+                              <fa-icon [icon]="faSignOutAlt"></fa-icon>
+                              Sign Out
+                          </li>
+                      </ul> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</header>

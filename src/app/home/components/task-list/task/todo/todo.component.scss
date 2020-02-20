@@ -1,0 +1,64 @@
+@import 'vars';
+@import 'breakpoints.scss';
+.list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #202020;
+    border-radius: 6px;
+    list-style: none;
+    overflow: hidden;
+    .list-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        @include sm {
+            flex-direction: column;
+            padding-left: 1em;
+        }
+        .list-title {
+            display: flex;
+            align-items: center;
+            margin: 1em;
+            width: 90%;
+            color: $darkTextColor;
+            @include sm {
+                width: 100%;
+            }
+            ion-checkbox {
+                --border-color: $darkTextColor;
+                margin-right: 0.5em;
+            }
+        }
+        .list-actions {
+            display: flex;
+            width: 10%;
+            justify-content: space-evenly;
+            @include sm {
+                width: 100%;
+                justify-content: flex-start;
+                padding-bottom: 1em;
+            }
+            >fa-icon {
+                cursor: pointer;
+                color: $darkTextColor;
+                transition: all .2s ease-out, color .2s ease-out;
+                @include sm {
+                    margin-right: 1em;
+                }
+                &:hover {
+                    transform: scale(1.2);
+                }
+                &.fa-trash-alt:hover {
+                    color: #f1294b;
+                }
+                &.fa-edit:hover {
+                    transform: scale(1.2);
+                    color: #4D18FF;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+@import 'vars';
+@import 'breakpoints.scss';
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $darkCardBgColor;
+    box-shadow: darkFilterBoxShadow;
+    padding: 0.7em 0em;
+    box-sizing: border-box;
+}
+
+.header-container {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include sm {
+        width: 90%;
+    }
+}
+
+.search-task {
+    width: 90%;
+    color: $darkTextColor;
+    @include sm {
+        width: 100%;
+        box-shadow: $darkFilterBoxShadow;
+    }
+    .searchbar-input-container {
+        ion-icon {
+            color: $darkTextColor !important;
+        }
+    }
+}
+
+.settings {
+    width: 20%;
+    position: relative;
+    @include sm {
+        display: none;
+    }
+    >ul {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: flex-end;
+        justify-content: flex-end;
+        -ms-flex-align: center;
+        align-items: center;
+        >li {
+            margin: 0.5em;
+            cursor: pointer;
+            color: $darkTextColor;
+            transition: all .2s ease-out, color .2s ease-out;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+    .setting-container {
+        .setting-menu {
+            position: absolute;
+            top: 100%;
+            border: 1px solid $darkBgColor;
+            border-radius: 4px;
+            padding: 0;
+            margin: 2px 0 0 0;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+            background-color: $darkCardBgColor;
+            list-style-type: none;
+            color: $darkTextColor;
+            display: none;
+            // @include smooth-anim-2s;
+            >li {
+                padding: 10px 20px;
+                cursor: pointer;
+                white-space: nowrap;
+                &:hover {
+                    background-color: $darkAddTaskBar;
+                }
+                svg {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+        &:hover {
+            .setting-menu {
+                display: block;
+            }
+        }
+    }
+}
