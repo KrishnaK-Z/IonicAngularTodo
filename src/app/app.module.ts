@@ -14,10 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 // Shared components
 import { ModalPageModule } from './shared/modal/modal.module';
 
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, ModalPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, ModalPageModule, NgReduxModule],
   providers: [
     StatusBar,
     SplashScreen,
