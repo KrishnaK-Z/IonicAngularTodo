@@ -14,12 +14,25 @@ import { AppRoutingModule } from './app-routing.module';
 // Shared components
 import { ModalPageModule } from './shared/modal/modal.module';
 
-import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import { NgxsModule } from '@ngxs/store';
+import { TaskState } from './store/state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, ModalPageModule, NgReduxModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FontAwesomeModule,
+    ModalPageModule,
+    NgxsModule.forRoot([
+      TaskState
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
@@ -27,4 +40,5 @@ import { NgReduxModule, NgRedux } from '@angular-redux/store';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
