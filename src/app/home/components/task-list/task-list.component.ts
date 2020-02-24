@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Task } from '../../../model/task';
+import { Store, Select, Actions, ofActionSuccessful } from '@ngxs/store';
+import { Subject, Observable } from 'rxjs';
+import { TaskState } from '../../../store/state';
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -7,7 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
+  @Select(TaskState.getTasks)
+  tasks: Observable<Task[]>;
+
+  constructor(private store: Store) {
+  }
 
   ngOnInit() {}
 

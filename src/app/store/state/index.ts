@@ -19,6 +19,18 @@ export class AppState {
     }
 })
 
+const INITIAL_STATE = {
+    id: 0,
+    title: 'Use Redux',
+    hastags: "",
+    status: "Open",
+    lists: [{
+        id: 0,
+        title: 'First Things First!!!',
+        status: false
+    }]
+};
+
 export class TaskState implements NgxsOnInit {
 
     @Selector()
@@ -29,6 +41,9 @@ export class TaskState implements NgxsOnInit {
     ngxsOnInit(ctx: StateContext<AppState>) {
         console.log('State initialized.');
         ctx.dispatch(new ClearState());
+        ctx.setState({
+            tasks: [INITIAL_STATE]
+        });
     }
 
     @Action(ClearState)
