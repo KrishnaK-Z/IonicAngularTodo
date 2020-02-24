@@ -42,7 +42,15 @@ export class TaskState implements NgxsOnInit {
     addTask({ getState, setState }: StateContext<AppState>, { payload }) {
         const state = getState();
         setState({
-            tasks: [...state.tasks, payload]
+            tasks: [...state.tasks, {
+                id: state.tasks.reduce((maxId, task) => {
+                    return Math.max(task.id, maxId)
+                }, -1) + 1,
+                title: payload.todoTitle,
+                hastags: "",
+                status: "Open",
+                lists: []
+            }]
         });
     }
 

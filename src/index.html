@@ -2,24 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+    <meta charset="utf-8" />
+    <title>Ionic App</title>
 
-  <base href="/" />
+    <base href="/" />
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <script>
+        var widgetBaseUrl = 'https://apps.mypurecloud.ie/widgets/9.0/',
+            widgetScriptElement = document.createElement('script');
+
+        widgetScriptElement.setAttribute('src', widgetBaseUrl + 'cxbus.min.js');
+
+        widgetScriptElement.addEventListener('load', function() {
+
+            CXBus.configure({
+                debug: false,
+                pluginsPath: widgetBaseUrl + 'plugins/'
+            });
+            CXBus.loadPlugin('widgets-core');
+        });
+
+        document.head.append(widgetScriptElement);
+    </script>
+
+
 </head>
 
 <body>
-  <app-root></app-root>
+    <!-- <input style="position: absolute; top: 10%; left: 20%; z-index: 99;" type="button" id="webchatStartReg" onclick="window._genesys.widgets.bus.command('WebChat.open')" value="Start Webchat-regular" /> -->
+    <app-root></app-root>
 </body>
 
 </html>

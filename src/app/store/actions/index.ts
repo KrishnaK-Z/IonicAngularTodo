@@ -3,7 +3,7 @@ import { Task } from '../../model/task';
 export class AddTask {
     static readonly type = '[Tasks] Add Task';
 
-    constructor(public payload: Task) {}
+    constructor(public payload) {}
 }
 
 export class FetchTasks {

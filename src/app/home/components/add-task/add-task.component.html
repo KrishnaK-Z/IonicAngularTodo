@@ -1,5 +1,5 @@
 <div class="add-todo">
-    <ion-input class="new-task" type="text" placeholder="Write a note or paste a link"></ion-input>
+    <ion-input class="new-task" #taskTitle type="text" placeholder="Write a note or paste a link" (keyup)="addTask($event)"></ion-input>
     <button class="new-todo-btn">
       <fa-icon [icon]="faExpand"></fa-icon>
   </button>
