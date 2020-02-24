@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +10,7 @@ import { ModalPage } from '../../../../../shared/modal/modal.page';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
+  @Input() todoChunk;
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;

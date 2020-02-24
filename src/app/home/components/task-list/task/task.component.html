@@ -18,15 +18,15 @@
                         <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
                     </ion-select>
                 </div>
-                <fa-icon [icon]="faPlus"></fa-icon>
+                <fa-icon [icon]="faPlus" (click)="addTodo()"></fa-icon>
                 <fa-icon [icon]="faUndoAlt"></fa-icon>
                 <fa-icon [icon]="faTrashAlt"></fa-icon>
             </div>
         </div>
         <div class="list-slides-container">
             <ion-slides pager>
-                <ion-slide>
-                    <app-todo></app-todo>
+                <ion-slide *ngFor="let todoChunk of createChunkLists(task.todos)">
+                    <app-todo [todoChunk]="todoChunk"></app-todo>
                 </ion-slide>
             </ion-slides>
         </div>

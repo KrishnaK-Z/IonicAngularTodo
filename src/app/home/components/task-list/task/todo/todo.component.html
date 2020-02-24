@@ -1,8 +1,8 @@
 <ul class="list">
-    <li class="list-item">
+    <li class="list-item" *ngFor="let todo of todoChunk">
         <div class="list-title">
             <ion-checkbox color="primary" id="1" mode="md"></ion-checkbox>
-            <label for="1" class="check--label">Sample Todo</label>
+            <label for="1" class="check--label">{{todo.title}}</label>
         </div>
         <div class="list-actions">
             <fa-icon [icon]="faEdit"></fa-icon>

@@ -6,6 +6,12 @@ export class AddTask {
     constructor(public payload) {}
 }
 
+export class AddTodo {
+    static readonly type = '[Tasks] Add Todo';
+
+    constructor(public payload) {}
+}
+
 export class FetchTasks {
     static readonly type = '[Task] Fetch tasks';
 

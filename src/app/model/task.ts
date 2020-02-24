@@ -5,5 +5,5 @@ export interface Task {
     title: string;
     hastags: string;
     status: string;
-    lists: Todo[]
+    todos: Todo[]
 }

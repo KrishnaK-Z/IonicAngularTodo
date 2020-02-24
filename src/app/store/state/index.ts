@@ -3,7 +3,7 @@ import { patch, append, removeItem, insertItem, updateItem } from '@ngxs/store/o
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-import { AddTask, FetchTasks, ClearState } from '../actions';
+import { AddTask, AddTodo, FetchTasks, ClearState } from '../actions';
 
 
 import {Task} from '../../model/task';
@@ -52,8 +52,31 @@ export class TaskState implements NgxsOnInit {
                 title: payload.todoTitle,
                 hastags: "",
                 status: "Open",
-                lists: []
+                todos: []
             }]
+        });
+    }
+
+    @Action(AddTodo)
+    addTodo({ getState, setState }: StateContext<AppState>, { payload }) {
+        const state = getState();
+        setState({
+            tasks: state.tasks.map((task, index) => task.id === payload.taskId ? {
+                ...task,
+                todos: (function () {
+                    var todos = task.todos;
+                    return [
+                        ...todos,
+                        {
+                            id: todos.reduce((maxId, todo) => {
+                                return Math.max(todo.id, maxId)
+                            }, -1) + 1,
+                            title: payload.todoTitle,
+                            status: false
+                        }
+                    ];
+                })()
+            } : task)
         });
     }
 
