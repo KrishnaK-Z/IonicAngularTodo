@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faListUl, faPlus, faUndoAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,6 +7,7 @@ import { faListUl, faPlus, faUndoAlt, faTrashAlt } from '@fortawesome/free-solid
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent implements OnInit {
+  @Input() task;
 
   faListUl = faListUl;
   faPlus = faPlus;

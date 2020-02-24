@@ -1,7 +1,7 @@
 import { Todo } from './todo';
 
 export interface Task {
-    id: string;
+    id: number;
     title: string;
     hastags: string;
     status: string;
