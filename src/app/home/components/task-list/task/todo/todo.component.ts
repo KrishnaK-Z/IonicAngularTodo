@@ -11,12 +11,20 @@ import { ModalPage } from '../../../../../shared/modal/modal.page';
 })
 export class TodoComponent implements OnInit {
   @Input() todoChunk;
+  @Input() listId;
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
 
+  isEdit = false;
+
   constructor(public modalController: ModalController) {
 
+  }
+
+  editTodo (todoId) {
+    // var id = this.listId + "-" + todoId;
+    this.isEdit = true
   }
 
   async presentModal() {

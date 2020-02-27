@@ -1,7 +1,4 @@
 import { State, Action, StateContext, Selector, NgxsOnInit } from '@ngxs/store';
-import { patch, append, removeItem, insertItem, updateItem } from '@ngxs/store/operators';
-import { tap, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 import { AddTask, AddTodo, FetchTasks, ClearState } from '../actions';
 
@@ -30,7 +27,17 @@ export class TaskState implements NgxsOnInit {
         console.log('State initialized.');
         ctx.dispatch(new ClearState());
         ctx.setState({
-            tasks: []
+            tasks: [{
+                id: 0,
+                title: "Sample Task",
+                hastags: '',
+                status: "Open",
+                todos: [{
+                    id: 0,
+                    title: "sample todo",
+                    status: "false"
+                }]
+            }]
         });
     }
 
@@ -72,7 +79,7 @@ export class TaskState implements NgxsOnInit {
                                 return Math.max(todo.id, maxId)
                             }, -1) + 1,
                             title: payload.todoTitle,
-                            status: false
+                            status: "false"
                         }
                     ];
                 })()

@@ -1,11 +1,11 @@
 <ul class="list">
     <li class="list-item" *ngFor="let todo of todoChunk">
-        <div class="list-title">
-            <ion-checkbox color="primary" id="1" mode="md"></ion-checkbox>
-            <label for="1" class="check--label">{{todo.title}}</label>
+        <div class="list-title" id="{{listId + '-' + todo.id}}">
+            <ion-checkbox color="primary" id="{{listId + '-' + todo.id}}" mode="md"></ion-checkbox>
+            <label [attr.contenteditable]=true for="" class="check--label">{{todo.title}}</label>
         </div>
         <div class="list-actions">
-            <fa-icon [icon]="faEdit"></fa-icon>
+            <fa-icon [icon]="faEdit" (click)="editTodo(todo.id)"></fa-icon>
             <fa-icon [icon]="faTrashAlt" (click)="presentModal()"></fa-icon>
         </div>
     </li>

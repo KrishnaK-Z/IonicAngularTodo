@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="list-slides-container">
-            <ion-slides pager>
+            <ion-slides pager="false">
                 <ion-slide *ngFor="let todoChunk of createChunkLists(task.todos)">
-                    <app-todo [todoChunk]="todoChunk"></app-todo>
+                    <app-todo [todoChunk]="todoChunk" [listId]="task.id"></app-todo>
                 </ion-slide>
             </ion-slides>
         </div>

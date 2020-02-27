@@ -21,6 +21,11 @@ export class TaskComponent implements OnInit {
     subHeader: 'Select your task Status'
   };
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
   constructor(private store: Store) { }
 
   ngOnInit() {}

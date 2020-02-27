@@ -16,26 +16,44 @@
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
     <script>
-        var widgetBaseUrl = 'https://apps.mypurecloud.ie/widgets/9.0/',
-            widgetScriptElement = document.createElement('script');
+        if (!window._genesys)
+            window._genesys = {};
+        if (!window._gt)
+            window._gt = [];
 
-        widgetScriptElement.setAttribute('src', widgetBaseUrl + 'cxbus.min.js');
-
-        widgetScriptElement.addEventListener('load', function() {
-
-            CXBus.configure({
-                debug: false,
-                pluginsPath: widgetBaseUrl + 'plugins/'
-            });
-            CXBus.loadPlugin('widgets-core');
-        });
-
-        document.head.append(widgetScriptElement);
+        // Initializes widgets configuration object, and enables Lazy-Loading of the Genesys Widgets:
     </script>
 
+    <script src="./assets/widget_NVE/cxbus.min.js" onload="javascript:CXBus.configure({debug:true,pluginsPath:'./assets/widget_NVE/plugins/'});CXBus.loadFile('./assets/widget_NVE/widgets.config.js').done(function(){CXBus.loadPlugin('widgets-core')});"></script>
+    <script>
+        var oAutoSubmit = CXBus.registerPlugin("WebChatAutoSubmit");
+        oAutoSubmit.before("WebChat.open", function() {
 
+            return {
+
+                form: {
+                    autoSubmit: true
+                },
+                formJSON: {
+
+                    inputs: [{
+                        name: "nvnickname",
+                        type: "text",
+                        value: "John",
+                        label: "Nick Name",
+                        id: "nvnicknameid"
+                    }, {
+                        name: "accountNo",
+                        type: "number",
+                        value: "777",
+                        label: "Account Number",
+                        id: "accountNoId"
+                    }]
+                }
+            }
+        });
+    </script>
 </head>
 
 <body>

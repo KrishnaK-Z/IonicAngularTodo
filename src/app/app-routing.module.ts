@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: 'modal',
     loadChildren: () => import('./shared/modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
 ];
 
